@@ -24,11 +24,11 @@
 	{#each posts as post}
 		<div
 			class="hover:bg-gray-200 cursor-pointer px-6 py-2 border-b border-gray-500"
-			on:click={() => goto('/blog/' + post.id)}
+			on:click={() => goto('/blog/' + post.price)}
 		>
-			<h4 class="font-bold">{post.title}</h4>
+			<h4 class="font-bold">{post.name}</h4>
 			<p class="mt-2 text-gray-800">{post.description}</p>
-			<p class="text-gray-500">By: {post.author.username}</p>
+			<p class="text-gray-500">By: {post.shop_location}</p>
 		</div>
 	{/each}
 </div>
