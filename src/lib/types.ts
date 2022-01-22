@@ -1,6 +1,7 @@
 export interface Post {    
     name: string;
     description: string;
+    slug: string;
     image: string;
     images: string  [];
     catid: string;
@@ -9,7 +10,7 @@ export interface Post {
     price: number;
     discount: string;
     sold: number;
-    shop_location: string;
+    shop_location: string;    
     url: string;
 }
 
