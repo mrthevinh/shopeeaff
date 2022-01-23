@@ -26,11 +26,20 @@
 
 <script lang="ts">
 	import type { Post } from '$lib/types';
-	// import { onMount } from 'svelte';
-
+	// import carousel from 'svelte-carousel';
+	// import type { List } from 'postcss/lib/list';
+	import { onMount } from 'svelte';
+	// let Carousel; // for saving Carousel component class
+  	// let carousel; // for calling methods of the carousel instance
 	export let post: Post;
 	let content = post.description;
 	let base_image = 'https://cf.shopee.vn/file/';
+	
+	const images = post.images.map(fillImage);
+
+	function fillImage(value:string, index:number, array:Array) {
+	return base_image + value;
+	}
 
 	// onMount(async () => {
 	// 	// Install the marked package first!
@@ -47,6 +56,15 @@
 <section class="text-gray-600 body-font overflow-hidden">
 	<div class="container px-5 py-24 mx-auto">
 		<div class="lg:w-4/5 mx-auto flex flex-wrap">
+			<!-- <Carousel let:loaded>
+				{#each images as src, imageIndex (src)}
+					<div class="img-container">
+						{#if loaded.includes(imageIndex)}
+							<img {src} alt="nature" />
+						{/if}
+					</div>
+				{/each}
+			</Carousel> -->
 			<img
 				alt="ecommerce"
 				class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
@@ -215,11 +233,11 @@
 				</div> -->
 				<div class="flex">
 					<span class="title-font font-medium text-2xl text-gray-900">{post.price}</span>
-					
+
 					<button
 						class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-						>
-						<a href="{post.url}">Mua Hàng</a></button
+					>
+						<a href={post.url}>Mua Hàng</a></button
 					>
 					<button
 						class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"
