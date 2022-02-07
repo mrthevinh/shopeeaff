@@ -14,8 +14,9 @@
 	import type { Post } from '$lib/types';
 	import { goto } from '$app/navigation';
 	import Number from '$lib/Number.svelte';
-
+	
 	export let posts: Post[];
+	
 </script>
 
 <div class="container mx-auto px-6">
@@ -31,8 +32,8 @@
 				</div>
 				<div class="py-4 px-4 bg-white">
 					<h3 class="text-md font-semibold text-gray-600">{post.name}</h3>
-					<p class="mt-4 text-lg font-thin">{post.price}</p>
-					<!-- <p class="mt-4 text-lg font-thin"><Number number={post.price}/></p> -->
+					<!-- <p class="mt-4 text-lg font-thin">{post.price}</p> -->
+					<p class="mt-4 text-lg font-thin"><Number number={post.price}/></p>
 					<span
 						class="flex items-center justify-center mt-4 w-full bg-yellow-400 hover:bg-yellow-500 py-1 rounded"
 					>
